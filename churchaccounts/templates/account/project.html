@@ -1,0 +1,14 @@
+
+{% block content %}
+        
+<form action="{% url 'churchaccounts:project' project.id %}" method="post"> 
+    {% csrf_token %} 
+    
+    <p>{{ project.name }} </p>
+    <p>{{ project.description }}</p>  
+    <p>{{ project.timeframe }}</p>  
+    <p><a href="{% url 'churchaccounts:make_payment' project.id %}" class="btn btn-warning">Donate</a></p>  
+        <!-- add url for supporting the project or handling donations  -->
+   
+   </form> 
+{% endblock content %}

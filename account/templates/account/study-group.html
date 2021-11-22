@@ -1,0 +1,14 @@
+
+{% block content %}
+        
+<form action="{% url 'account:study-group' group.id %}" method="post"> 
+    {% csrf_token %} 
+    
+    <p>{{ group.name }} </p>
+    <p> {{group.topic}} </p>
+    <li>{{ group.participants.all }}</li>
+    <a href="{% url 'account:join_group' group.id%}" class="btn btn-warning">join group</a>
+    
+   
+   </form> 
+{% endblock content %}

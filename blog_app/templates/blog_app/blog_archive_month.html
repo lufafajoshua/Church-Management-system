@@ -1,0 +1,12 @@
+<ul> 
+    {% for blog in object_list %} 
+    <li>{{ blog.pub_date|date:"F j, Y" }}: {{ blog.name }}</li> 
+    {% endfor %} </ul>
+<p>
+{% if previous_month %} 
+    Previous Month: {{ previous_month|date:"F Y" }} 
+{% endif %} 
+{% if next_month %} 
+    Next Month: {{ next_month|date:"F Y" }} 
+{% endif %} 
+</p>

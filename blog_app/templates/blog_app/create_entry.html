@@ -1,0 +1,69 @@
+{% block content %}
+<div class="container">
+    <form action="{% url 'blog_app:create_entry' blog.id%}" method="post">
+        {% csrf_token %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Create Blog</div>
+                <div class="panel-body">
+                    {% if error_message %}
+                        <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                    {% endif %}
+                   
+                    <div class="form-group clearfix">
+                        <label for="{{ form.headline.id_for_label }}" class="col-md-4 control-label text-right">Headline<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.headline }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.body_text.id_for_label }}" class="col-md-4 control-label text-right">Body<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.body_text }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.mod_date.id_for_label }}" class="col-md-4 control-label text-right">Modification date<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.mod_date }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.pub_date.id_for_label }}" class="col-md-4 control-label text-right">pub_date<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.pub_date }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.n_comments.id_for_label }}" class="col-md-4 control-label text-right">n_comments<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.n_comments }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.rating.id_for_label }}" class="col-md-4 control-label text-right">Rate me<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.rating }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.comments.id_for_label }}" class="col-md-4 control-label text-right">Comments<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.comments }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.authors.id_for_label }}" class="col-md-4 control-label text-right">Authors<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.authors }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <input type="submit" value="Save" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content%}

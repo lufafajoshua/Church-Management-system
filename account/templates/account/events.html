@@ -1,0 +1,12 @@
+<DOCTYPE html>
+
+    {% block content %}
+    {% for event in events %}
+                    
+            <p>{{ event.name }}
+                <a href="{% url 'account:event_detail' event.id %}" class="btn btn-warning">View Details</a>
+            </p>
+                          
+    {% endfor %} 
+    
+    {% endblock content %}

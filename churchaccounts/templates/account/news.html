@@ -1,0 +1,12 @@
+<DOCTYPE html>
+
+    {% block content %}
+    {% for news in news %}
+                    
+            <p>{{ news.headline }}
+                <a href="{% url 'churchaccounts:news_detail' news.id %}" class="btn btn-warning">View Details</a>
+            </p>
+                          
+    {% endfor %} 
+    
+    {% endblock content %}

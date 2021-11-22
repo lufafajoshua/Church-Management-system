@@ -1,0 +1,13 @@
+<DOCTYPE html>
+
+{% block content %}
+{% for church in church_list %}
+                
+        <p>{{ church.name }}
+            <a href="{% url 'account:display_account' church.id %}" class="btn btn-warning">Account</a>
+        </p>
+                      
+{% endfor %} 
+
+{% endblock content %}
+

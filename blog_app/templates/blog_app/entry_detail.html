@@ -1,0 +1,18 @@
+
+{% block content %}
+        
+<form action="{% url 'blog_app:entry_detail' entry.id %}" method="post"> 
+    {% csrf_token %} 
+    <p>{{ entry.headline }}</p>
+    <p>{{ entry.body_text }}</p>
+    <p>{{ comments }}</p>
+    <p>{{ entry.rating }}</p>
+   </form> 
+   <p><a href="{% url 'blog_app:comment' entry.id %}" class="btn btn-warning">Comment</a></p>   
+<p>Print the comments right here
+    {% for comment in comment %}
+    <p>{{ comment.body }}</p>
+    {% endfor %}
+</p>
+
+   {% endblock content %}

@@ -1,0 +1,14 @@
+<h1>{{ day }}</h1>
+<ul> 
+    {% for blog in object_list %} 
+    <li>{{ blog.pub_date|date:"F j, Y" }}: {{ blog.name }}
+
+    </li> {% endfor %} </ul>
+<p>
+{% if previous_day %} 
+Previous Day: {{ previous_day }} 
+{% endif %} 
+{% if previous_day and next_day %}--{% endif %} 
+{% if next_day %} 
+Next Day: {{ next_day }} 
+{% endif %} </p>

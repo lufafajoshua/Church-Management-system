@@ -1,0 +1,17 @@
+
+{% block content %}
+        
+<form action="{% url 'churchaccounts:study-group' group.id %}" method="post"> 
+    {% csrf_token %} 
+    
+    <p>{{ group.name }} </p>
+    <p> {{group.topic}} </p>
+    <li>{{ group.participants.all }}</li>
+    <a href="{% url 'churchaccounts:join_group' group.id%}" class="btn btn-warning">join group</a>
+    <a href="{% url 'django_chatter:group_chat' group.id %}" class="btn btn-warning">Join Chart</a>
+
+
+    
+   
+   </form> 
+{% endblock content %}

@@ -1,0 +1,53 @@
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'churchaccounts:create_account' %}" method="post">
+        {% csrf_token %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Create Account</div>
+                <div class="panel-body">
+                    {% if error_message %}
+                        <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                    {% endif %}
+                   
+                    <div class="form-group clearfix">
+                        <label for="{{ form.address.id_for_label }}" class="col-md-4 control-label text-right">Address<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.address }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.head_elder.id_for_label }}" class="col-md-4 control-label text-right">Head Elder<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.head_elder }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.ch_pastor.id_for_label }}" class="col-md-4 control-label text-right">Church Pastor<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.ch_pastor }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.ch_clerk.id_for_label }}" class="col-md-4 control-label text-right">Church Clerk<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.ch_clerk }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-md-offset-4">
+                        <input type="submit" value="create group" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content%}

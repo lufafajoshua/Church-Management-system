@@ -1,0 +1,11 @@
+
+{% block content %}
+        
+<form action="{% url 'account:announcement_detail' announcement.id %}" method="post"> 
+    {% csrf_token %} 
+    
+    <p>{{ announcement.title }} </p>
+    <p>{{ announcement.description }}</p>  
+    
+   </form> 
+{% endblock content %}

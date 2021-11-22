@@ -1,0 +1,11 @@
+{% block content %}
+<form action="{% url 'blog_app:result' %}" method="post">
+    
+{% for blog in result %}
+{{ blog.name }}
+{% endfor %}
+</form>
+
+{% endblock %}
+
+

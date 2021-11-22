@@ -1,0 +1,14 @@
+<DOCTYPE html>
+
+    {% block content %}
+    {% for announcement in announcements %}
+                    
+            <p>{{ announcement.title }}
+                <a href="{% url 'churchaccounts:announcement_detail' announcement.id %}" class="btn btn-warning">View Details</a>
+            </p>
+                          
+    {% endfor %} 
+    
+    {% endblock content %}
+    
+    

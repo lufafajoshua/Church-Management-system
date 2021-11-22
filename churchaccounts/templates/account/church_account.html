@@ -1,0 +1,42 @@
+
+{% block content %}
+        
+<form action="{% url 'churchaccounts:display_account' church.id %}" method="post"> 
+    {% csrf_token %} 
+    <p>{{ church.name }}</p>
+    {% for contact in contact %}
+    <div class="contact">
+        <p>Address: {{ contact.address }}</p>
+        <p>Head Elder: {{ contact.head_elder }}</p>
+        <p>Church Pastor: {{ contact.ch_pastor }}</p>
+        <p>Church Clerk: {{ contact.ch_clerk }}</p>
+
+    </div>
+    {% endfor %}
+    <p><a href="{% url 'churchaccounts:create_group' church.id %}" class="btn btn-warning">creategroup</a></p>
+    {% for group in group.all %} 
+    <li>{{ group.name }} 
+        <a href="{% url 'churchaccounts:study-group' group.id %}" class="btn btn-warning">Group</a>
+    </li>
+        
+    {% endfor %}
+    <p><h1>Projects</h1><a href="{% url 'churchaccounts:create_project' church.id %}" class="btn btn-warning">create project</a></p> 
+    {% for project in project.all %} 
+    <li>{{ project.name }}
+        <a href="{% url 'churchaccounts:project' project.id %}" class="btn btn-warning">project</a> 
+        
+    </li>
+    
+    {% endfor %}      
+    </p>
+
+    <p><a href="{% url 'churchaccounts:create_program' church.id %}" class="btn btn-warning">createprogram</a></p>
+    {% for program in program.all %} 
+        <p>{{ program.name }}</p> 
+        <p>{{ program.head }}</p>
+        <p>{{ program.timeframe }}</p>       
+    {% endfor %}
+
+   </form> 
+
+{% endblock content %}

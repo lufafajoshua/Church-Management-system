@@ -1,0 +1,33 @@
+{% block content %}
+<div class="container">
+    <form action="{% url 'blog_app:update_blog' blog.id%}" method="post">
+        {% csrf_token %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Create Blog</div>
+                <div class="panel-body">
+                    {% if error_message %}
+                        <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                    {% endif %}
+                   
+                    <div class="form-group clearfix">
+                        <label for="{{ form.name.id_for_label }}" class="col-md-4 control-label text-right">Name<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label for="{{ form.tagline.id_for_label }}" class="col-md-4 control-label text-right">Tagline<span class="text-red">*</span>:</label>
+                        <div class="col-md-6">
+                            {{ form.tagline }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <input type="submit" value="update" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content%}
